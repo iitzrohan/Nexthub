@@ -1,11 +1,8 @@
 "use client";
 
 import LoadingButton from "@/components/LoadingButton";
-import RichTextEditor from "@/components/RichTextEditor";
-
 import { createProductValues, createProductSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { draftToMarkdown } from "markdown-draft-js";
 import { useForm } from "react-hook-form";
 import { CreateProductPosting } from "./actions";
 
@@ -49,11 +46,13 @@ export default function NewProductForm() {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="space-y-2">
-          <label className="label label-text font-semibold" htmlFor="name">
+          <label
+            className="label label-text font-semibold"
+            onClick={() => setFocus("name")}
+          >
             Product name
           </label>
           <input
-            id="name"
             className="input input-bordered w-full"
             placeholder="Name"
             {...register("name")}
@@ -69,15 +68,11 @@ export default function NewProductForm() {
           >
             Description
           </label>
-          <RichTextEditor
-            editorClassName="w-full min-h-[150px] textarea-bordered textarea"
-            toolbarClassName="textarea"
-            onChange={(draft) => {
-              const markdown = draftToMarkdown(draft);
-              setValue("description", markdown);
-            }}
-            ref={register("description").ref}
-          />
+          <textarea
+            className="textarea textarea-bordered min-h-[150px] w-full"
+            placeholder="Description"
+            {...register("description")}
+          ></textarea>
           {errors.description && (
             <p className="font-semibold text-error">
               {errors.description.message}
@@ -108,11 +103,13 @@ export default function NewProductForm() {
           )}
         </div>
         <div className="space-y-2">
-          <label className="label label-text font-semibold" htmlFor="price">
+          <label
+            className="label label-text font-semibold"
+            onClick={() => setFocus("price")}
+          >
             Price
           </label>
           <input
-            id="price"
             className="input input-bordered w-full"
             {...register("price")}
             type="number"

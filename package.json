@@ -6,10 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^1.4.0",
+    "@auth/prisma-adapter": "^1.5.0",
     "@hookform/resolvers": "^3.3.4",
     "@prisma/client": "^5.10.2",
     "@vercel/blob": "^0.22.1",
@@ -17,32 +18,27 @@
     "daisyui": "^4.7.2",
     "eslint-config-prettier": "^9.1.0",
     "lucide-react": "^0.344.0",
-    "markdown-draft-js": "^2.4.0",
     "nanoid": "^5.0.6",
-    "next": "14.1.0",
+    "next": "14.1.2",
     "next-auth": "^4.24.6",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "prisma": "^5.10.2",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-draft-wysiwyg": "^1.15.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.0",
-    "react-markdown": "^9.0.1",
     "tailwind-merge": "^2.2.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@types/markdown-draft-js": "^2.2.7",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@types/react-draft-wysiwyg": "^1.13.8",
-    "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.2.63",
+    "@types/react-dom": "^18.2.20",
+    "autoprefixer": "^10.4.18",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.1.2",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
   }
 }
