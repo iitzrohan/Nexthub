@@ -17,7 +17,7 @@ export default function LoadingButton({
       className="btn btn-primary"
     >
       <span className="flex items-center justify-center gap-1">
-        {loading && <Loader2 size={16} className="animate-spin" />}
+        {loading && <span className="loading loading-spinner loading-xs" />}
         {children}
       </span>
     </button>

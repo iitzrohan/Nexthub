@@ -14,7 +14,7 @@ export async function CreateProductPosting(formData: FormData) {
   const { name, description, productImage, price } =
     createProductSchema.parse(values);
 
-  const slug = `${toSlug(name)}-${nanoid(10)}`;
+  const slug = `${toSlug(name)}-${Date.now()}-${nanoid(10)}`;
 
   const blob = await put(
     `product_images/${slug}${path.extname(productImage.name)}`,
