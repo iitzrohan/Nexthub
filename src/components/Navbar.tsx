@@ -17,7 +17,7 @@ export default async function Navbar() {
   const cart = await getCart();
 
   return (
-    <div className="rounded-lg bg-teal-500">
+    <div className="mb-4 rounded-lg bg-teal-500">
       <div className="m-auto flex max-w-[1536px] justify-between p-2">
         <div className="dropdown lg:hidden">
           <div tabIndex={0} role="button" className="btn btn-ghost">
