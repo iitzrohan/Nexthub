@@ -12,8 +12,8 @@ const config: Config = {
     themes: [
       {
         lightTheme: {
-          primary: "#f4aa3a",
-          secondary: "#f4f4a1",
+          primary: "#14b8a6",
+          secondary: "#fde047",
           accent: "#1be885",
           neutral: "#272136",
           "base-100": "#ffffff",

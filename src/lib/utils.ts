@@ -12,7 +12,7 @@ export function toSlug(str: string) {
     .replace(/[^\w-]+/g, "");
 }
 
-export function formatMoney(amount: number) {
+export function formatPrice(amount: number) {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "INR",

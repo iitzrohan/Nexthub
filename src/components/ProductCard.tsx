@@ -1,4 +1,4 @@
-import { formatMoney } from "@/lib/utils";
+import { formatPrice } from "@/lib/utils";
 import { Product } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,16 +15,21 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="card w-full bg-base-100 shadow-xl">
       <figure>
-        <Image
-          src={imageUrl}
-          alt={product.name}
-          width={800}
-          height={400}
-          className="h-48 object-cover"
-        />
+        <Link href={"/products/" + product.id}>
+          <Image
+            src={imageUrl}
+            alt={product.name}
+            width={800}
+            height={400}
+            className="h-48 object-cover"
+          />
+        </Link>
       </figure>
       <div className="card-body">
-        <Link className="card-title" href={"/products/" + product.id}>
+        <Link
+          className="card-title font-serif"
+          href={"/products/" + product.id}
+        >
           {name}
         </Link>
         {isNew && <div className="badge badge-secondary">New</div>}
@@ -32,7 +37,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           {description}
         </p>
         <div className="card-actions items-center justify-end">
-          <p>{formatMoney(price)}</p>
+          <p>{formatPrice(price)}</p>
           <Link href={"/products/" + product.id} className="btn btn-primary">
             Buy Now
           </Link>

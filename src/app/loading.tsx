@@ -1,5 +1,5 @@
 export default function LoadingPage() {
   return (
-    <span className="loading loading-dots loading-lg m-auto block min-h-screen" />
+    <span className="loading loading-dots loading-lg m-auto block min-h-screen text-primary" />
   );
 }
