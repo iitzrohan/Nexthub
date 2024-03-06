@@ -2,6 +2,9 @@ import { getCart } from "@/lib/cart";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import ShoppingCartButton from "@/components/ShoppingCartButton";
+import UserMenuButton from "./UserMenuButton";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 async function searchProducts(formData: FormData) {
   "use server";
@@ -14,6 +17,7 @@ async function searchProducts(formData: FormData) {
 }
 
 export default async function Navbar() {
+  const session = await getServerSession(authOptions);
   const cart = await getCart();
 
   return (
@@ -38,7 +42,7 @@ export default async function Navbar() {
           </div>
           <ul
             tabIndex={0}
-            className="menu dropdown-content menu-sm z-[1] mt-3 w-[350px] gap-6 rounded-box bg-base-100 p-2 shadow-lg"
+            className="menu dropdown-content menu-sm z-[1] mt-3 w-[340px] gap-6 rounded-box bg-base-100 p-2 shadow-lg"
           >
             <form action={searchProducts}>
               <div className="form-control">
@@ -62,11 +66,6 @@ export default async function Navbar() {
             <li>
               <Link href="/about" className="btn">
                 About
-              </Link>
-            </li>
-            <li>
-              <Link href="/sign-in" className="btn">
-                Sign in
               </Link>
             </li>
           </ul>
@@ -107,15 +106,11 @@ export default async function Navbar() {
             About
           </Link>
           <ShoppingCartButton cart={cart} />
-          <Link href="/sign-in" className="btn btn-ghost hidden lg:flex">
-            Sign in
-          </Link>
+          <UserMenuButton session={session} />
         </div>
         <div className="flex gap-4 lg:hidden">
           <ShoppingCartButton cart={cart} />
-          <Link href="/sign-in" className="btn btn-ghost hidden lg:flex">
-            Sign in
-          </Link>
+          <UserMenuButton session={session} />
         </div>
       </div>
     </div>

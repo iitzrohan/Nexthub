@@ -6,7 +6,7 @@ const nextConfig = {
         hostname: "*.public.blob.vercel-storage.com",
       },
       {
-        hostname: "daisyui.com",
+        hostname: "*.googleusercontent.com",
       },
     ],
   },
