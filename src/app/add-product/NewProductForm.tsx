@@ -36,7 +36,7 @@ export default function NewProductForm() {
   }
 
   return (
-    <main className="m-auto my-10 max-w-3xl space-y-2">
+    <main className="m-auto my-10 min-h-screen max-w-3xl space-y-2">
       <div>
         <h1 className="mb-3 text-lg font-bold">Add Product</h1>
       </div>

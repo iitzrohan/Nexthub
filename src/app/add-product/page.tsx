@@ -1,19 +1,24 @@
 import { Metadata } from "next";
-import NewProductForm from "./NewProductForm";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
-import { notFound, redirect } from "next/navigation";
+import { redirect } from "next/navigation";
+import dynamic from "next/dynamic";
 export const metadata: Metadata = {
   title: "Add product - Nexthub",
 };
 
+const NewProductForm = dynamic(() => import("./NewProductForm"), {
+  ssr: false,
+});
+
 export default async function page() {
   const session = await getServerSession(authOptions);
-  const user = session?.user;
   // Basic authentication, do not use in production
-  if (session && user?.email === "t.rohan1903@gmail.com") {
+  if (session?.user.role === "ADMIN") {
     return <NewProductForm />;
+  } else if (!session) {
+    redirect("/api/auth/signin?callbackUrl=/add-product");
   } else {
-    notFound();
+    redirect("/not-authorized");
   }
 }

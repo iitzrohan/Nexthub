@@ -15,7 +15,7 @@ export default function CartEntry({
   setProductQuantity,
 }: CartEntryProps) {
   const [isPending, startTransition] = useTransition();
-  const quantityOptions = Array.from({ length: 10 }, (_, i) => i);
+  const quantityOptions = Array.from({ length: 10 }, (_, i) => i + 1);
   return (
     <div>
       <div className="flex flex-wrap items-center gap-4">
@@ -43,6 +43,11 @@ export default function CartEntry({
                 });
               }}
             >
+              {
+                <option key="remove" value="0">
+                  Delete
+                </option>
+              }
               {quantityOptions.map((option) => (
                 <option key={option} value={option}>
                   {option}
