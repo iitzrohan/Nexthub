@@ -21,8 +21,8 @@ export default async function Navbar() {
   const cart = await getCart();
 
   return (
-    <div className="mb-4 rounded-lg bg-teal-500">
-      <div className="m-auto flex max-w-[1536px] justify-between p-2">
+    <header className="mb-4 rounded-lg bg-teal-500">
+      <nav className="m-auto flex max-w-[1536px] justify-between p-2">
         <div className="dropdown lg:hidden">
           <div tabIndex={0} role="button" className="btn btn-ghost">
             <svg
@@ -71,7 +71,7 @@ export default async function Navbar() {
           </ul>
         </div>
         <div className="flex items-center">
-          <div className="flex flex-col justify-center">
+          <div className="flex items-center">
             <Link
               href="/"
               className="font-serif text-3xl font-semibold xl:text-4xl"
@@ -112,7 +112,7 @@ export default async function Navbar() {
           <ShoppingCartButton cart={cart} />
           <UserMenuButton session={session} />
         </div>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 }
